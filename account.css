@@ -1,0 +1,247 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+/* HEADER / NAVBAR */
+.dashboard-header {
+    background-color: #2c3e50;
+    color: white;
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.dashboard-nav {
+    gap: 1.5rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.dashboard-nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.dashboard-nav ul li {
+    margin: 0 15px;
+}
+
+.dashboard-nav a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.dashboard-nav a:hover,
+.dashboard-nav a.active {
+    color: #3498db;
+}
+
+.dashboard-nav button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.dashboard-nav button:hover {
+    background-color: #c0392b;
+}
+
+/* MAIN DASHBOARD */
+.dashboard-container {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.user-card,
+.account-switch,
+.dashboard-actions,
+.dashboard-info {
+    background-color: white;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.user-card h2 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.user-card p {
+    margin: 0.5rem 0;
+}
+
+.account-switch h3,
+.dashboard-actions h3,
+.dashboard-info h3 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+#accountSelect {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #bdc3c7;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+#switchAccountBtn,
+.btn {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+
+#switchAccountBtn:hover,
+.btn:hover {
+    background-color: #2980b9;
+}
+
+.btn.danger {
+    background-color: #e74c3c;
+}
+
+.btn.danger:hover {
+    background-color: #c0392b;
+}
+
+.actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.dashboard-info p {
+    font-style: italic;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* FOOTER */
+.dashboard-footer {
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 3rem;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+    .dashboard-header {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .dashboard-nav {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .actions {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* ADDITIONAL RESPONSIVE STYLES */
+@media (max-width: 900px) {
+
+    .user-card,
+    .account-switch,
+    .dashboard-actions,
+    .dashboard-info {
+        padding: 1.5rem;
+    }
+
+    .dashboard-container {
+        padding: 0 0.5rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .dashboard-nav ul li {
+        margin: 0 10px;
+    }
+
+    .dashboard-nav a {
+        font-size: 0.7rem;
+    }
+
+    .dashboard-nav ul li button {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.7rem;
+    }
+
+    .user-card h2 {
+        font-size: 1.0rem;
+    }
+
+    .user-card p {
+        font-size: 0.7rem;
+    }
+
+    .dashboard-actions .actions {
+        gap: 0.5rem;
+    }
+
+    .dashboard-actions h3 {
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    .actions a {
+        font-size: 0.8rem;
+    }
+
+    .dashboard-info h3 {
+        font-size: 1rem;
+        text-align: center;
+    }
+
+
+    .dashboard-info p {
+        font-size: 0.8rem;
+        text-align: center;
+    }
+
+    .dashboard-footer {
+        font-size: 0.8rem;
+    }
+}

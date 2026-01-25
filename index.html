@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>home page</title>
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="navbar-content">
+            <h1 class="logo">Gandhi Legacy</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a id="joinLink" href="signup.html">Join Us</a></li>
+
+                    <button id="signup" onclick="location.href='signup.html'">Sign-up</button>
+                    <button id="login" onclick="location.href='login.html'">Log-in</button>
+
+                    <!-- Account button (for logged-in user) -->
+                    <button id="accountBtn" style="display: none;" onclick="location.href='account.html'">
+                        Account
+                    </button>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero" class="hero">
+        <div class="img">
+            <img src="gandhi_icon.png" alt="gandhi">
+        </div>
+
+        <div class="hero-content">
+            <h2 id="welcome"></h2>
+            <h1>Walk the Path of Truth and Non-Violence</h1>
+            <p>"In a gentle way, you can shake the world." - Mahatma Gandhi</p>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <h2>About Our Mission</h2>
+        <p>
+            Inspired by the teachings of Mahatma Gandhi, we believe in peace,
+            equality, and non-violent change.
+        </p>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2024 Gandhi Legacy. Promoting Peace and Non-Violence.</p>
+    </footer>
+
+    <script src="index.js" defer></script>
+</body>
+
+</html>
