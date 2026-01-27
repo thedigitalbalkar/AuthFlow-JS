@@ -39,7 +39,7 @@ body {
 }
 
 .form-group input[type="text"],
-.form-group input[type="email"],
+.form-group input[type="gmail"],
 .form-group input[type="password"] {
     width: 95%;
     padding: 12px;
@@ -102,7 +102,7 @@ body {
     }
 
     .form-group input[type="text"],
-    .form-group input[type="email"],
+    .form-group input[type="gmail"],
     .form-group input[type="password"] {
         width: 100%;
         padding: 10px;
@@ -137,7 +137,7 @@ body {
     }
 
     .form-group input[type="text"],
-    .form-group input[type="email"],
+    .form-group input[type="gmail"],
     .form-group input[type="password"] {
         width: 90%;
         padding: 10px;

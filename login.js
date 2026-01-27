@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     loginBtn.addEventListener("click", function () {
 
-        const inputValue = document.getElementById("email").value.trim(); // username OR email
+        const inputValue = document.getElementById("gmail").value.trim(); // username OR email
         const password = document.getElementById("password").value.trim();
 
         // 1️⃣ Empty field validation

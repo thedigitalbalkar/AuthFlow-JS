@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <title>home page</title>
 </head>
@@ -12,7 +13,14 @@
 
     <header class="navbar">
         <div class="navbar-content">
-            <h1 class="logo">Gandhi Legacy</h1>
+            <div class="logo">
+                <a href="index.html">
+                    <h1 class="logo"><img src="gandhi_icon.png" alt="gandhi_icon" class="logoimg">
+                        Gandhi Legacy</h1>
+                </a>
+            </div>
+
+
             <nav>
                 <ul>
                     <li><a href="index.html">Home</a></li>
@@ -22,13 +30,32 @@
                     <button id="signup" onclick="location.href='signup.html'">Sign-up</button>
                     <button id="login" onclick="location.href='login.html'">Log-in</button>
 
-                    <!-- Account button (for logged-in user) -->
-                    <button id="accountBtn" style="display: none;" onclick="location.href='account.html'">
-                        Account
-                    </button>
+                    <!-- Account button (for logged-in user)  -->
+                    <li id="accountBtn" style="display: none;">
+                        <a href="account.html" title="Account">
+                            <i class="fa-solid fa-user"></i>
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </div>
+
+        <!-- <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+
+            <ul class="nav-actions">
+                <li><a id="joinLink" href="signup.html">Join Us</a></li>
+                <li><button id="signup">Sign-up</button></li>
+                <li><button id="login">Log-in</button></li>
+                <li id="accountBtn">
+                    <a href="account.html"><i class="fa-solid fa-user"></i></a>
+                </li>
+            </ul>
+        </nav> -->
+
     </header>
 
     <section id="hero" class="hero">
@@ -44,15 +71,18 @@
     </section>
 
     <section id="about" class="about">
-        <h2>About Our Mission</h2>
-        <p>
-            Inspired by the teachings of Mahatma Gandhi, we believe in peace,
-            equality, and non-violent change.
-        </p>
+        <div> <img src="vecteezy_the-indian-flag-and-the-flag-must-be-made-of-khadi-a_46993638.jpg" alt="flag">
+            <h2>About Our Mission</h2>
+            <p>
+                Inspired by the teachings of Mahatma Gandhi, we believe in peace,
+                equality, and non-violent change.
+            </p>
+        </div>
+
     </section>
 
     <footer class="footer">
-        <p>&copy; 2024 Gandhi Legacy. Promoting Peace and Non-Violence.</p>
+        <p>&copy; 2026 Gandhi Legacy. Promoting Peace and Non-Violence.</p>
     </footer>
 
     <script src="index.js" defer></script>

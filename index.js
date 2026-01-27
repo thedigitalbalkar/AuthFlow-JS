@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
         signupBtn.style.display = "none";
         loginBtn.style.display = "none";
         joinLink.style.display = "none";
-        accountBtn.style.display = "inline-block";
+        accountBtn.style.display = "list-item";
 
         // show welcome ONLY once per login session
         if (!welcomeShown) {

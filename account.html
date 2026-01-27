@@ -3,8 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>User Dashboard</title>
+    <title>Account</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="account.css">
 </head>
 
@@ -12,52 +13,67 @@
 
     <!-- HEADER / NAVBAR -->
     <header class="dashboard-header">
-        <h1 class="logo">Gandhi Legacy</h1>
+        <div class="logo">
+            <a href="index.html">
+                <h1 class="logo"><img src="gandhi_icon.png" alt="gandhi_icon" class="logoimg">
+                    Gandhi Legacy</h1>
+            </a>
+        </div>
 
         <nav class="dashboard-nav">
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="account.html" class="active">Account</a></li>
-                <li><button id="logoutBtn">Logout</button></li>
+                <li>
+                    <a href="account.html" class="active" title="Account">
+                        <i class="fa-solid fa-user"></i>
+                    </a>
+                </li>
             </ul>
         </nav>
     </header>
 
     <!-- MAIN DASHBOARD -->
     <main class="dashboard-container">
+        <aside class="other-users">
+            <h3>Other Users</h3>
 
+            <select id="otherUsersDropdown">
+                <option value="">List</option>
+            </select>
+        </aside>
         <!-- USER INFO CARD -->
-        <section class="user-card">
-            <h2>Welcome, <span id="userName">User</span> 👋</h2>
-            <p><strong>Username:</strong> <span id="userUsername"></span></p>
-            <p><strong>Email:</strong> <span id="userEmail"></span></p>
-        </section>
+        <div class="infocard">
+            <section class="user-card">
+                <h2>Welcome, <span id="userName">User</span> 👋</h2>
+                <p><strong>Username:</strong> <span id="userUsername"></span></p>
+                <p><strong>Gmail:</strong> <span id="userGmail"></span></p>
+            </section>
 
-        <!-- DASHBOARD ACTIONS -->
-        <section class="dashboard-actions">
-            <h3>Quick Actions</h3>
+            <!-- DASHBOARD ACTIONS -->
+            <section class="dashboard-actions">
+                <h3>Quick Actions</h3>
 
-            <div class="actions">
-                <a href="index.html" class="btn">Go to Home</a>
-                <button class="btn danger" id="logoutBtn2">Logout</button>
-            </div>
-        </section>
+                <div class="actions">
+                    <a href="index.html" class="btn">Go to Home</a>
+                    <button class="btn danger" id="logoutBtn">Logout</button>
+                </div>
+            </section>
 
-        <!-- INFO / MISSION SECTION -->
-        <section class="dashboard-info">
-            <h3>Our Mission</h3>
-            <p>
-                “In a gentle way, you can shake the world.”
-                <br>— Mahatma Gandhi
-            </p>
-        </section>
-
+            <!-- INFO / MISSION SECTION -->
+            <section class="dashboard-info">
+                <h3>Our Mission</h3>
+                <p>
+                    “In a gentle way, you can shake the world.”
+                    <br>— Mahatma Gandhi
+                </p>
+            </section>
+        </div>
     </main>
 
     <!-- FOOTER -->
     <footer class="dashboard-footer">
-        <p>&copy; 2024 Gandhi Legacy</p>
+        <p>&copy; 2026 Gandhi Legacy. Promoting Peace and Non-Violence.</p>
     </footer>
 
     <!-- JS -->
