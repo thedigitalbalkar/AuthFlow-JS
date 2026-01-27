@@ -297,4 +297,117 @@ h3,
     .dashboard-footer {
         font-size: 0.8rem;
     }
+
+}
+
+/* Tablets & below */
+@media (max-width: 900px) {
+
+
+.dashboard-container {
+flex-direction: column;
+margin: 1rem;
+}
+
+
+.other-users {
+width: 100%;
+margin-right: 0;
+}
+
+
+.infocard {
+width: 100%;
+margin-right: 0;
+}
+
+
+.user-card,
+.dashboard-actions,
+.dashboard-info {
+width: 100%;
+}
+}
+
+
+/* Mobile devices */
+@media (max-width: 600px) {
+
+
+.dashboard-container {
+margin: 1rem 0.5rem;
+}
+
+
+.user-card,
+.dashboard-actions,
+.dashboard-info,
+.other-users {
+padding: 1.2rem;
+}
+
+
+.user-card h2 {
+font-size: 1.2rem;
+text-align: center;
+}
+
+
+.user-card p {
+font-size: 0.9rem;
+text-align: center;
+}
+
+
+.other-users h3,
+.dashboard-actions h3,
+.dashboard-info h3 {
+text-align: center;
+font-size: 1.1rem;
+}
+
+
+.dashboard-info p {
+text-align: center;
+font-size: 0.9rem;
+}
+
+
+.actions {
+flex-direction: column;
+align-items: stretch;
+}
+
+
+.actions .btn {
+width: 100%;
+}
+}
+
+
+/* Extra small screens */
+@media (max-width: 400px) {
+
+
+.user-card h2 {
+font-size: 1rem;
+}
+
+
+.user-card p {
+font-size: 0.75rem;
+}
+
+
+.other-users h3,
+.dashboard-actions h3,
+.dashboard-info h3 {
+font-size: 1rem;
+}
+
+
+#otherUsersDropdown {
+font-size: 0.85rem;
+padding: 8px 10px;
+}
 }
