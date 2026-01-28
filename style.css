@@ -58,10 +58,45 @@ nav ul li a {
     transition: color 0.3s ease;
 }
 
+nav ul button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+nav ul button:hover {
+    background-color: #c0392b;
+}
+
 nav ul li a:hover {
     color: #3498db;
 }
 
+/* Dropdown styling */
+
+.nav-item {
+    display: flex;
+    align-items: center;
+}
+
+#otherUsersDropdown {
+    padding: 6px 10px;
+    font-size: 14px;
+    border-radius: 6px;
+    border: 1px solid #2c3e50;
+    background-color: #2c3e50;
+    color: white;
+    cursor: pointer;
+}
+
+#otherUsersDropdown option {
+    /* background-color: white; */
+    color: rgb(255, 255, 255);
+}
 
 /* ACCOUNT ICON */
 #accountBtn a i {
@@ -103,6 +138,10 @@ nav ul li a:hover {
 .hero-content p {
     font-size: 18px;
     line-height: 1.6;
+}
+
+#welcome {
+    align-items: center;
 }
 
 /* ABOUT */

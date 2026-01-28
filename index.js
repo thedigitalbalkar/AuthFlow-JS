@@ -36,3 +36,21 @@ document.addEventListener("DOMContentLoaded", function () {
         welcomeText.textContent = "";
     }
 });
+
+// Populate "Other Users" dropdown
+const users = JSON.parse(localStorage.getItem("users")) || [];
+const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+const dropdown = document.getElementById("otherUsersDropdown");
+
+if (dropdown && loggedInUser) {
+  const otherUsers = users.filter(
+    user => user.username !== loggedInUser.username
+  );
+
+  otherUsers.forEach(user => {
+    const option = document.createElement("option");
+    option.value = user.username;
+    option.textContent = `${user.fullName} (${user.username})`;
+    dropdown.appendChild(option);
+  });
+}
