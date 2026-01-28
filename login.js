@@ -1,38 +1,40 @@
+// login.js
 document.addEventListener("DOMContentLoaded", function () {
 
-    const loginForm = document.getElementById("loginForm");
     const loginBtn = document.getElementById("signinBtn");
 
     loginBtn.addEventListener("click", function () {
 
-        const inputValue = document.getElementById("gmail").value.trim(); // username OR email
+        const inputValue = document.getElementById("gmail").value.trim();
         const password = document.getElementById("password").value.trim();
 
-        // 1️⃣ Empty field validation
         if (!inputValue || !password) {
             alert("Please enter username/email and password");
             return;
         }
 
-        // 2️⃣ Get registered users
         const users = JSON.parse(localStorage.getItem("users")) || [];
 
-        // 3️⃣ Find matching user
         const matchedUser = users.find(user =>
-            (user.username === inputValue || user.email === inputValue) &&
+            (user.username === inputValue || user.gmail === inputValue) &&
             user.password === password
         );
 
-        // 4️⃣ If user not found
         if (!matchedUser) {
             alert("Invalid login credentials");
             return;
         }
 
-        // 5️⃣ Login success → create session
-        localStorage.setItem("loggedInUser", JSON.stringify(matchedUser));
+        // 🚫 BLOCK INACTIVE USERS
+        if (matchedUser.status === "inactive") {
+            alert("Your account is inactive. Please contact admin.");
+            return;
+        }
 
-        // 6️⃣ Redirect to home page
+        // Save session
+        localStorage.setItem("loggedInUser", JSON.stringify(matchedUser));
+        sessionStorage.removeItem("welcomeShown");
+
         window.location.href = "index.html";
     });
 

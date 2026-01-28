@@ -1,30 +1,30 @@
+// account.js
 document.addEventListener("DOMContentLoaded", function () {
 
-    // 1️⃣ Get logged-in user
     const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
 
-    // 2️⃣ Protect dashboard (no direct access)
     if (!loggedInUser) {
+        alert("Please login first");
         window.location.href = "login.html";
         return;
     }
 
-    // 3️⃣ Populate user info
     document.getElementById("userName").textContent = loggedInUser.fullName;
     document.getElementById("userUsername").textContent = loggedInUser.username;
     document.getElementById("userGmail").textContent = loggedInUser.gmail;
 
-    // 4️⃣ Logout logic (both buttons)
-    const logoutBtn = document.getElementById("logoutBtn");
-    const logoutBtn2 = document.getElementById("logoutBtn2");
+    // 🔒 Hide Admin/Users button for non-admins
+    const usersBtn = document.getElementById("UsersBtn");
 
-    function logout() {
-        localStorage.removeItem("loggedInUser");
-        sessionStorage.removeItem("welcomeShown");
-        window.location.href = "login.html";
+
+    if (usersBtn && loggedInUser.role !== "admin") {
+        usersBtn.style.display = "none";
     }
 
-    logoutBtn.addEventListener("click", logout);
-    logoutBtn2.addEventListener("click", logout);
+    document.getElementById("logoutBtn").addEventListener("click", function () {
+        localStorage.removeItem("loggedInUser");
+        sessionStorage.removeItem("welcomeShown");
+        window.location.href = "index.html";
+    });
 
 });

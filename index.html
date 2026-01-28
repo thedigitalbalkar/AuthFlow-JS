@@ -4,77 +4,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Main CSS -->
     <link rel="stylesheet" href="style.css">
-    <title>home page</title>
+
+    <title>Home | Gandhi Legacy</title>
 </head>
 
 <body>
 
+    <!-- NAVBAR -->
     <header class="navbar">
         <div class="navbar-content">
+
             <div class="logo">
                 <a href="index.html">
-                    <h1 class="logo"><img src="gandhi_icon.png" alt="gandhi_icon" class="logoimg">
-                        Gandhi Legacy</h1>
+                    <h1 class="logo">
+                        <img src="gandhi_icon.png" alt="gandhi_icon" class="logoimg">
+                        Gandhi Legacy
+                    </h1>
                 </a>
             </div>
 
-
             <nav>
                 <ul>
-                    <li class="nav-item"><select id="otherUsersDropdown">
-                        <option value="">Users</option>
-                    </select></li>
-                    
-                    
                     <li><a href="index.html">Home</a></li>
                     <li><a href="#about">About</a></li>
+
+                    <!-- USERS / ADMIN (LOGGED IN ONLY) -->
+                    <li id="UsersBtn" style="display:none;">
+                        <a href="admin.html" title="Users">Admin</a>
+                    </li>
+
+                    <!-- GUEST ONLY -->
                     <li><a id="joinLink" href="signup.html">Join Us</a></li>
 
                     <button id="signup" onclick="location.href='signup.html'">Sign-up</button>
                     <button id="login" onclick="location.href='login.html'">Log-in</button>
 
-                    <!-- Account button (for logged-in user)  -->
-                    <li id="accountBtn" style="display: none;">
+                    <!-- ACCOUNT (LOGGED IN ONLY) -->
+                    <li id="accountBtn" style="display:none;">
                         <a href="account.html" title="Account">
                             <i class="fa-solid fa-user"></i>
                         </a>
                     </li>
                 </ul>
             </nav>
-        </div>
 
+        </div>
     </header>
 
+    <!-- HERO SECTION -->
     <section id="hero" class="hero">
         <div class="img">
-            <img src="gandhi_icon.png" alt="gandhi">
+            <img src="gandhi_logo.png" alt="gandhi">
         </div>
 
         <div class="hero-content">
             <h2 id="welcome"></h2>
             <h1>Walk the Path of Truth and Non-Violence</h1>
-            <p>"In a gentle way, you can shake the world." - Mahatma Gandhi</p>
+            <p>"In a gentle way, you can shake the world." – Mahatma Gandhi</p>
         </div>
     </section>
 
+    <!-- ABOUT -->
     <section id="about" class="about">
-        <div> <img src="vecteezy_the-indian-flag-and-the-flag-must-be-made-of-khadi-a_46993638.jpg" alt="flag">
+        <div>
+            <img src="vecteezy_the-indian-flag-and-the-flag-must-be-made-of-khadi-a_46993638.jpg" alt="flag">
             <h2>About Our Mission</h2>
             <p>
                 Inspired by the teachings of Mahatma Gandhi, we believe in peace,
                 equality, and non-violent change.
             </p>
         </div>
-
     </section>
 
+    <!-- FOOTER -->
     <footer class="footer">
         <p>&copy; 2026 Gandhi Legacy. Promoting Peace and Non-Violence.</p>
     </footer>
 
-    <script src="index.js" defer></script>
+    <!-- GLOBAL JS (IMPORTANT) -->
+    <script src="global.js"></script>
+
 </body>
 
 </html>

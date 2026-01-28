@@ -78,6 +78,11 @@ body {
     box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
 }
 
+#signinBtn a{
+    text-decoration: none;
+    color: white;
+}
+
 #signinBtn {
     margin-top: 10px;
     background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
