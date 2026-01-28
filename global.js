@@ -1,3 +1,26 @@
+// ================= ADMIN INITIALIZER =================
+(function createDefaultAdmin() {
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+
+    const adminExists = users.some(user => user.role === "admin");
+
+    if (!adminExists) {
+        const adminUser = {
+            fullName: "Admin",
+            gmail: "admin@gmail.com",
+            username: "admin",
+            password: "Admin@123",
+            role: "admin",
+            status: "active"
+        };
+
+        users.push(adminUser);
+        localStorage.setItem("users", JSON.stringify(users));
+
+        console.log("✅ Default admin created");
+    }
+})();
+
 // global.js
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -51,5 +74,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         welcomeText && (welcomeText.textContent = "");
     }
+
 
 });
