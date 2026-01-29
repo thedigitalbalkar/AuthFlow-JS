@@ -26,5 +26,9 @@ document.addEventListener("DOMContentLoaded", function () {
         sessionStorage.removeItem("welcomeShown");
         window.location.href = "index.html";
     });
+const user = JSON.parse(localStorage.getItem("loggedInUser"));
+if (!user) {
+  window.location.href = "index.html";
+}
 
 });
