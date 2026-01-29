@@ -4,19 +4,19 @@
 
     const adminExists = users.some(user => user.role === "admin");
 
+
     if (!adminExists) {
-        const adminUser = {
+        users.push({
             fullName: "Admin",
             gmail: "admin@gmail.com",
             username: "admin",
             password: "Admin@123",
             role: "admin",
             status: "active"
-        };
+        });
 
-        users.push(adminUser);
+
         localStorage.setItem("users", JSON.stringify(users));
-
         console.log("✅ Default admin created");
     }
 })();
@@ -77,3 +77,4 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 });
+
