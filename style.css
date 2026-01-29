@@ -10,18 +10,6 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* NAVBAR */
-/* .navbar {
-    position: fixed;
-    width: 100%;
-    top: 0;
-    height: 64px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    padding: 1.5rem 2rem;
-    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.16);
-    transition: box-shadow 0.25s ease;
-} */
-
 .navbar-content {
     position: fixed;
     width: 100%;
@@ -73,7 +61,7 @@ nav ul li a {
 }
 
 nav ul button {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #667eea 0%);
     color: white;
     transition: transform 0.2s, box-shadow 0.2s;
     color: white;
@@ -227,4 +215,5 @@ nav ul li a:hover {
     .footer p {
         font-size: 10px;
     }
+
 }
