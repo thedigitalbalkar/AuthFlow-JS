@@ -74,6 +74,26 @@ document.addEventListener("DOMContentLoaded", function () {
 
         welcomeText && (welcomeText.textContent = "");
     }
+});
 
+document.addEventListener("DOMContentLoaded", function () {
+
+    const logoutBtn = document.getElementById("logoutBtn");
+
+    if (logoutBtn) {
+        logoutBtn.addEventListener("click", function (e) {
+            e.preventDefault(); // ⛔ stop <a> default behavior
+
+            console.log("🔴 User logged out");
+
+            // Clear auth
+            localStorage.removeItem("loggedInUser");
+            sessionStorage.removeItem("welcomeShown");
+
+            // ✅ Redirect to HOME (navbar shows Login/Signup)
+            window.location.href = "index.html";
+        });
+    }
 
 });
+
