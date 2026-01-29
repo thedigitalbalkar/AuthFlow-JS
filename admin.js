@@ -173,5 +173,10 @@ document.addEventListener("DOMContentLoaded", function () {
         newPassword.value = "";
         newStatus.value = "active";
     };
-
+const user = JSON.parse(localStorage.getItem("loggedInUser"));
+if (!user) {
+  window.location.href = "index.html";
+}
+    
 });
+
