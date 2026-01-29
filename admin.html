@@ -59,17 +59,24 @@
             <div class="admin-users-header">
                 <h3>Users Management</h3>
             </div>
-            <div class="search-wrapper">
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" id="userSearch" placeholder="Search users..." class="user-search" />
+            <div class="actions2">
+                <div class="search-wrapper">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="userSearch" placeholder="Search users..." class="user-search" />
+                </div>
+
+                <div class="admin-actions">
+                    <button id="addUserBtn" class="btn primary">+ Add New User</button>
+                </div>
             </div>
+
             <!-- USERS TABLE -->
             <div class="users-table">
 
                 <div class="table-head">
                     <span>User</span>
                     <span>Username</span>
-                    <span>Gmail</span>
+                    <span>Email</span>
                     <span>Status</span>
                     <span>Actions</span>
                 </div>
@@ -101,7 +108,7 @@
             <input type="text" id="editFullName">
 
             <label>Gmail</label>
-            <input type="gmail" id="editGmail">
+            <input type="email" id="editGmail">
 
             <label>Status</label>
             <select id="editStatus">
@@ -115,7 +122,28 @@
             </div>
         </div>
     </div>
-</body>
 
+    <!-- ADD USER MODAL -->
+    <div id="addUserModal" class="modal hidden">
+        <div class="modal-content">
+            <h3>Add New User</h3>
+
+            <input type="text" id="newFullName" placeholder="Full Name" />
+            <input type="text" id="newUsername" placeholder="Username" />
+            <input type="email" id="newGmail" placeholder="Gmail" />
+            <input type="password" id="newPassword" placeholder="Password" />
+
+            <select id="newStatus">
+                <option value="active">Active</option>
+                <option value="inactive">Inactive</option>
+            </select>
+
+            <div class="modal-actions">
+                <button id="createUserBtn" class="btn primary">Create</button>
+                <button id="closeAddUserModal" class="btn danger">Cancel</button>
+            </div>
+        </div>
+    </div>
+</body>
 
 </html>

@@ -5,32 +5,39 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
 
-    if (!loggedInUser) {
-        alert("Please login first");
-        window.location.href = "login.html";
-        return;
-    }
-
-    if (loggedInUser.role !== "admin") {
-        alert("Access denied. Admins only.");
+    if (!loggedInUser || loggedInUser.role !== "admin") {
+        alert("Admins only");
         window.location.href = "index.html";
         return;
     }
 
     /* ================= ELEMENTS ================= */
 
-    const users = JSON.parse(localStorage.getItem("users")) || [];
+    let users = JSON.parse(localStorage.getItem("users")) || [];
+
     const tableBody = document.getElementById("adminUsersTable");
     const searchInput = document.getElementById("userSearch");
 
-    // Modal elements
-    const modal = document.getElementById("editUserModal");
+    // Edit modal
+    const editModal = document.getElementById("editUserModal");
     const editIndexInput = document.getElementById("editUserIndex");
     const editFullName = document.getElementById("editFullName");
     const editGmail = document.getElementById("editGmail");
     const editStatus = document.getElementById("editStatus");
     const saveBtn = document.getElementById("saveUserBtn");
     const closeBtn = document.getElementById("closeModalBtn");
+
+    // Add user modal
+    const addUserBtn = document.getElementById("addUserBtn");
+    const addModal = document.getElementById("addUserModal");
+    const closeAddUserModal = document.getElementById("closeAddUserModal");
+    const createUserBtn = document.getElementById("createUserBtn");
+
+    const newFullName = document.getElementById("newFullName");
+    const newUsername = document.getElementById("newUsername");
+    const newGmail = document.getElementById("newGmail");
+    const newPassword = document.getElementById("newPassword");
+    const newStatus = document.getElementById("newStatus");
 
     /* ================= RENDER USERS ================= */
 
@@ -39,10 +46,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
         users.forEach((user, index) => {
 
-            // 🚫 Hide admin accounts
             if (user.role === "admin") return;
 
-            // 🔍 Search filter
             const search = filterText.toLowerCase();
             if (
                 !user.fullName.toLowerCase().includes(search) &&
@@ -50,16 +55,14 @@ document.addEventListener("DOMContentLoaded", function () {
             ) return;
 
             const row = document.createElement("div");
-            row.classList.add("table-row");
+            row.className = "table-row";
             row.dataset.index = index;
-
-            const statusClass = user.status === "inactive" ? "inactive" : "active";
 
             row.innerHTML = `
                 <span>${user.fullName}</span>
                 <span>${user.username}</span>
                 <span>${user.gmail}</span>
-                <span class="status ${statusClass}">${user.status}</span>
+                <span class="status ${user.status}">${user.status}</span>
                 <span class="actions">
                     <button class="toggle" data-index="${index}">
                         ${user.status === "active" ? "Deactivate" : "Activate"}
@@ -75,24 +78,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /* ================= SEARCH ================= */
 
-    searchInput.addEventListener("input", function () {
-        renderUsers(this.value);
-    });
+    searchInput.addEventListener("input", e =>
+        renderUsers(e.target.value)
+    );
 
-    /* ================= TABLE CLICK HANDLER ================= */
+    /* ================= TABLE CLICK ================= */
 
     tableBody.addEventListener("click", function (e) {
 
-        /* ===== TOGGLE STATUS ===== */
+        // Toggle status
         if (e.target.classList.contains("toggle")) {
-
             const index = e.target.dataset.index;
-
-            // Prevent admin disabling self
-            if (users[index].username === loggedInUser.username) {
-                alert("You cannot deactivate yourself.");
-                return;
-            }
 
             users[index].status =
                 users[index].status === "active" ? "inactive" : "active";
@@ -102,31 +98,26 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        /* ===== ROW CLICK → OPEN MODAL ===== */
+        // Row click → edit
         const row = e.target.closest(".table-row");
         if (!row) return;
 
         const index = row.dataset.index;
         const user = users[index];
 
-        if (!user || user.role === "admin") return;
-
         editIndexInput.value = index;
         editFullName.value = user.fullName;
         editGmail.value = user.gmail;
         editStatus.value = user.status;
 
-        modal.classList.remove("hidden");
+        editModal.classList.remove("hidden");
     });
 
-    /* ================= MODAL ACTIONS ================= */
+    /* ================= EDIT MODAL ================= */
 
-    closeBtn.addEventListener("click", () => {
-        modal.classList.add("hidden");
-    });
+    closeBtn.onclick = () => editModal.classList.add("hidden");
 
-    saveBtn.addEventListener("click", () => {
-
+    saveBtn.onclick = () => {
         const index = editIndexInput.value;
 
         users[index].fullName = editFullName.value.trim();
@@ -134,9 +125,51 @@ document.addEventListener("DOMContentLoaded", function () {
         users[index].status = editStatus.value;
 
         localStorage.setItem("users", JSON.stringify(users));
-
-        modal.classList.add("hidden");
+        editModal.classList.add("hidden");
         renderUsers(searchInput.value);
-    });
+    };
 
+    /* ================= ADD USER ================= */
+
+    addUserBtn.onclick = () => addModal.classList.remove("hidden");
+
+    closeAddUserModal.onclick = () => addModal.classList.add("hidden");
+
+    createUserBtn.onclick = () => {
+
+        if (!newFullName.value || !newUsername.value || !newGmail.value || !newPassword.value) {
+            alert("All fields required");
+            return;
+        }
+
+        const exists = users.some(
+            u => u.username === newUsername.value || u.gmail === newGmail.value
+        );
+
+        if (exists) {
+            alert("Username or Gmail already exists");
+            return;
+        }
+
+        users.push({
+            fullName: newFullName.value.trim(),
+            username: newUsername.value.trim(),
+            gmail: newGmail.value.trim(),
+            password: newPassword.value,
+            role: "user",
+            status: newStatus.value
+        });
+
+        localStorage.setItem("users", JSON.stringify(users));
+
+        addModal.classList.add("hidden");
+        renderUsers(searchInput.value);
+
+        // reset fields
+        newFullName.value = "";
+        newUsername.value = "";
+        newGmail.value = "";
+        newPassword.value = "";
+        newStatus.value = "active";
+    };
 });
