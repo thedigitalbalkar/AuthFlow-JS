@@ -1,7 +1,7 @@
 // admin.js
 document.addEventListener("DOMContentLoaded", function () {
 
-    /* ================= ACCESS CONTROL ================= */
+    /* ACCESS CONTROL */
 
     const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
 
@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
     }
 
-    /* ================= ELEMENTS ================= */
+    /* ELEMENTS */
 
     let users = JSON.parse(localStorage.getItem("users")) || [];
 
@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const newPassword = document.getElementById("newPassword");
     const newStatus = document.getElementById("newStatus");
 
-    /* ================= RENDER USERS ================= */
+    /* RENDER USERS */
 
     function renderUsers(filterText = "") {
         tableBody.innerHTML = "";
@@ -76,13 +76,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     renderUsers();
 
-    /* ================= SEARCH ================= */
+    /* SEARCH */
 
     searchInput.addEventListener("input", e =>
         renderUsers(e.target.value)
     );
 
-    /* ================= TABLE CLICK ================= */
+    /* TABLE CLICK */
 
     tableBody.addEventListener("click", function (e) {
 
@@ -113,7 +113,7 @@ document.addEventListener("DOMContentLoaded", function () {
         editModal.classList.remove("hidden");
     });
 
-    /* ================= EDIT MODAL ================= */
+    /* EDIT MODAL */
 
     closeBtn.onclick = () => editModal.classList.add("hidden");
 
@@ -129,7 +129,7 @@ document.addEventListener("DOMContentLoaded", function () {
         renderUsers(searchInput.value);
     };
 
-    /* ================= ADD USER ================= */
+    /* ADD USER */
 
     addUserBtn.onclick = () => addModal.classList.remove("hidden");
 
@@ -173,4 +173,5 @@ document.addEventListener("DOMContentLoaded", function () {
         newPassword.value = "";
         newStatus.value = "active";
     };
+
 });
