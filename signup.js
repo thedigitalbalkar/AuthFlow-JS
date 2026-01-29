@@ -9,14 +9,9 @@ document.addEventListener("DOMContentLoaded", function () {
         const fullName = document.getElementById("fullName").value.trim();
         const gmail = document.getElementById("gmail").value.trim();
         
-        function isValidGmail(gmail) {
-        return /^[a-zA-Z0-9._%+-]+@gmail\.com$/.test(email);
-}
-
-
-        if (!isValidGmail(gmail)) {
-        alert("Your Gmail is incorrect");
-        return;
+if (!email.endsWith("@gmail.com")) {
+alert("Your Gmail is incorrect");
+return;
 }
         
         const username = document.getElementById("username").value.trim();
@@ -58,3 +53,4 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 });
+
