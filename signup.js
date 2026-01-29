@@ -8,12 +8,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const fullName = document.getElementById("fullName").value.trim();
         const gmail = document.getElementById("gmail").value.trim();
-        
-if (!gmail.endsWith("@gmail.com")) {
-alert("Your Gmail is incorrect");
-return;
-}
-        
+
+        if (!gmail.endsWith("@gmail.com")) {
+            alert("Your Gmail is incorrect");
+            return;
+        }
+
         const username = document.getElementById("username").value.trim();
         const password = document.getElementById("password").value.trim();
         const confirmPassword = document.getElementById("confirmPassword").value.trim();
@@ -51,7 +51,4 @@ return;
         window.location.href = "login.html";
     });
 
-
 });
-
-
