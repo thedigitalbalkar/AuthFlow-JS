@@ -154,7 +154,7 @@ document.addEventListener("DOMContentLoaded", function () {
         users.push({
             fullName: newFullName.value.trim(),
             username: newUsername.value.trim(),
-            email: newGmail.value.trim(),
+            gmail: newGmail.value.trim(),
             password: newPassword.value,
             role: "user",
             status: newStatus.value
@@ -179,5 +179,6 @@ if (!user) {
 }
     
 });
+
 
 
