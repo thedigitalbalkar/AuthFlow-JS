@@ -1,7 +1,7 @@
 // admin.js
 document.addEventListener("DOMContentLoaded", function () {
 
-    /* ACCESS CONTROL */
+    /* ================= ACCESS CONTROL ================= */
 
     const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
 
@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
     }
 
-    /* ELEMENTS */
+    /* ================= ELEMENTS ================= */
 
     let users = JSON.parse(localStorage.getItem("users")) || [];
 
@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const newPassword = document.getElementById("newPassword");
     const newStatus = document.getElementById("newStatus");
 
-    /* RENDER USERS */
+    /* ================= RENDER USERS ================= */
 
     function renderUsers(filterText = "") {
         tableBody.innerHTML = "";
@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
             row.innerHTML = `
                 <span>${user.fullName}</span>
                 <span>${user.username}</span>
-                <span>${user.gmail}</span>
+                <span>${user.email || user.gmail || "—"}</span>
                 <span class="status ${user.status}">${user.status}</span>
                 <span class="actions">
                     <button class="toggle" data-index="${index}">
@@ -76,13 +76,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     renderUsers();
 
-    /* SEARCH */
+    /* ================= SEARCH ================= */
 
     searchInput.addEventListener("input", e =>
         renderUsers(e.target.value)
     );
 
-    /* TABLE CLICK */
+    /* ================= TABLE CLICK ================= */
 
     tableBody.addEventListener("click", function (e) {
 
@@ -113,7 +113,7 @@ document.addEventListener("DOMContentLoaded", function () {
         editModal.classList.remove("hidden");
     });
 
-    /* EDIT MODAL */
+    /* ================= EDIT MODAL ================= */
 
     closeBtn.onclick = () => editModal.classList.add("hidden");
 
@@ -129,7 +129,7 @@ document.addEventListener("DOMContentLoaded", function () {
         renderUsers(searchInput.value);
     };
 
-    /* ADD USER */
+    /* ================= ADD USER ================= */
 
     addUserBtn.onclick = () => addModal.classList.remove("hidden");
 
@@ -154,12 +154,18 @@ document.addEventListener("DOMContentLoaded", function () {
         users.push({
             fullName: newFullName.value.trim(),
             username: newUsername.value.trim(),
-            gmail: newGmail.value.trim(),
+            email: newGmail.value.trim(),
+
             password: newPassword.value,
             role: "user",
             status: newStatus.value
-            
+
         });
+
+        if (!gmail.endsWith("@gmail.com")) {
+            alert("Your Gmail is incorrect");
+            return;
+        }
 
         localStorage.setItem("users", JSON.stringify(users));
 
@@ -173,12 +179,9 @@ document.addEventListener("DOMContentLoaded", function () {
         newPassword.value = "";
         newStatus.value = "active";
     };
-const user = JSON.parse(localStorage.getItem("loggedInUser"));
-if (!user) {
-  window.location.href = "index.html";
-}
-    
+
+    const user = JSON.parse(localStorage.getItem("loggedInUser"));
+    if (!user) {
+        window.location.href = "index.html";
+    }
 });
-
-
-
