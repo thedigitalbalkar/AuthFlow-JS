@@ -69,7 +69,7 @@
                 <div class="table-head">
                     <span>User</span>
                     <span>Username</span>
-                    <span>Gmail</span>
+                    <span>Email</span>
                     <span>Status</span>
                     <span>Actions</span>
                 </div>
@@ -89,7 +89,32 @@
 
     <!-- ADMIN JS -->
     <script src="admin.js"></script>
-</body>
 
+    <!-- EDIT USER MODAL -->
+    <div id="editUserModal" class="modal hidden">
+        <div class="modal-content">
+            <h3>Edit User</h3>
+
+            <input type="hidden" id="editUserIndex">
+
+            <label>Full Name</label>
+            <input type="text" id="editFullName">
+
+            <label>Gmail</label>
+            <input type="email" id="editGmail">
+
+            <label>Status</label>
+            <select id="editStatus">
+                <option value="active">Active</option>
+                <option value="inactive">Inactive</option>
+            </select>
+
+            <div class="modal-actions">
+                <button id="saveUserBtn">Save</button>
+                <button id="closeModalBtn" class="danger">Cancel</button>
+            </div>
+        </div>
+    </div>
+</body>
 
 </html>
