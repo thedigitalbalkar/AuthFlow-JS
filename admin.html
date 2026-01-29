@@ -40,6 +40,12 @@
                         <i class="fa-solid fa-user"></i>
                     </a>
                 </li>
+
+                <li>
+                    <a href="login.html" class="logout" title="logout">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                    </a>
+                </li>
             </ul>
         </nav>
     </header>
@@ -117,7 +123,7 @@
             </select>
 
             <div class="modal-actions">
-                <button id="saveUserBtn">Save</button>
+                <button id="saveUserBtn" class="save">Save</button>
                 <button id="closeModalBtn" class="danger">Cancel</button>
             </div>
         </div>
@@ -125,22 +131,34 @@
 
     <!-- ADD USER MODAL -->
     <div id="addUserModal" class="modal hidden">
-        <div class="modal-content">
+        <div class="modal-box">
             <h3>Add New User</h3>
 
-            <input type="text" id="newFullName" placeholder="Full Name" />
-            <input type="text" id="newUsername" placeholder="Username" />
-            <input type="email" id="newGmail" placeholder="Gmail" />
-            <input type="password" id="newPassword" placeholder="Password" />
 
+            <input id="newFullName" placeholder="Full Name*" />
+            <input id="newUsername" placeholder="Username*" />
+            <input id="newGmail" placeholder="Gmail*" />
+            <input id="newPassword" type="password" placeholder="Password*" />
+
+
+            <!-- GENDER -->
+            <select id="newGender">
+                <option value="">Select Gender<span>*</span></option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+
+
+            <!-- STATUS -->
             <select id="newStatus">
                 <option value="active">Active</option>
                 <option value="inactive">Inactive</option>
             </select>
 
+
             <div class="modal-actions">
-                <button id="createUserBtn" class="btn primary">Create</button>
-                <button id="closeAddUserModal" class="btn danger">Cancel</button>
+                <button id="createUserBtn">Create</button>
+                <button id="closeAddUserModal">Cancel</button>
             </div>
         </div>
     </div>

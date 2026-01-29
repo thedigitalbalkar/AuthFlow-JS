@@ -158,6 +158,7 @@ document.addEventListener("DOMContentLoaded", function () {
             password: newPassword.value,
             role: "user",
             status: newStatus.value
+            
         });
 
         localStorage.setItem("users", JSON.stringify(users));
