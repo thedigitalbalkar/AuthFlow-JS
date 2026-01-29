@@ -16,8 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const users = JSON.parse(localStorage.getItem("users")) || [];
 
         const matchedUser = users.find(user =>
-            (user.username === inputValue || user.gmail === inputValue ||
-user.gmail === inputValue) &&
+            (user.username === inputValue || user.gmail === inputValue) &&
             user.password === password
         );
 
@@ -41,3 +40,4 @@ user.gmail === inputValue) &&
 
 
 });
+
