@@ -8,11 +8,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const fullName = document.getElementById("fullName").value.trim();
         const gmail = document.getElementById("gmail").value.trim();
+        
+        function isValidGmail(gmail) {
+        return /^[a-zA-Z0-9._%+-]+@gmail\.com$/.test(email);
+}
+
+
+        if (!isValidGmail(gmail)) {
+        alert("Your Gmail is incorrect");
+        return;
+}
+        
         const username = document.getElementById("username").value.trim();
         const password = document.getElementById("password").value.trim();
         const confirmPassword = document.getElementById("confirmPassword").value.trim();
 
-        if (!fullName || !gmail || !username || !password || !confirmPassword) {
+        if (!gmail || !username || !password || !confirmPassword) {
             alert("Please fill all the details");
             return;
         }
@@ -44,5 +55,6 @@ document.addEventListener("DOMContentLoaded", function () {
         alert("Signup successful! Please log in.");
         window.location.href = "login.html";
     });
+
 
 });
