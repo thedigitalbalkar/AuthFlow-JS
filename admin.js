@@ -181,7 +181,7 @@ document.addEventListener("DOMContentLoaded", function () {
     saveBtn.onclick = () => {
 
         const index = editIndexInput.value;
-        if (!user[index]) return;
+        // if (!user[index]) return;
         // users[index].fullName = editFullName.value.trim();
         // users[index].email = editEmail.value.trim();
         users[index].status = editStatus.value;
@@ -270,4 +270,5 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 });
+
 
