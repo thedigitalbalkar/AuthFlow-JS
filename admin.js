@@ -181,14 +181,15 @@ document.addEventListener("DOMContentLoaded", function () {
     saveBtn.onclick = () => {
 
         const index = editIndexInput.value;
-
-        users[index].fullName = editFullName.value.trim();
-        users[index].email = editEmail.value.trim();
+        if (!user[index]) return;
+        // users[index].fullName = editFullName.value.trim();
+        // users[index].email = editEmail.value.trim();
         users[index].status = editStatus.value;
 
         localStorage.setItem("users", JSON.stringify(users));
         editModal.classList.add("hidden");
         renderUsers(searchInput.value);
+        showToast("user status updated, success");
     };
 
     /* ================= ADD USER ================= */
@@ -269,3 +270,4 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 });
+
