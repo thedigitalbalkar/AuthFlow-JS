@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.getElementById("userName").textContent = loggedInUser.fullName;
     document.getElementById("userUsername").textContent = loggedInUser.username;
-    document.getElementById("userGmail").textContent = loggedInUser.gmail;
+    document.getElementById("userEmail").textContent = loggedInUser.email;
 
     // 🔒 Hide Admin/Users button for non-admins
     const usersBtn = document.getElementById("UsersBtn");
@@ -26,9 +26,10 @@ document.addEventListener("DOMContentLoaded", function () {
         sessionStorage.removeItem("welcomeShown");
         window.location.href = "index.html";
     });
-const user = JSON.parse(localStorage.getItem("loggedInUser"));
-if (!user) {
-  window.location.href = "index.html";
-}
+
+    const user = JSON.parse(localStorage.getItem("loggedInUser"));
+    if (!user) {
+        window.location.href = "index.html";
+    }
 
 });

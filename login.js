@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     loginBtn.addEventListener("click", function () {
 
-        const inputValue = document.getElementById("gmail").value.trim();
+        const inputValue = document.getElementById("email").value.trim();
         const password = document.getElementById("password").value.trim();
 
         if (!inputValue || !password) {
@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const users = JSON.parse(localStorage.getItem("users")) || [];
 
         const matchedUser = users.find(user =>
-            (user.username === inputValue || user.gmail === inputValue) &&
+            (user.username === inputValue || user.email === inputValue) &&
             user.password === password
         );
 
@@ -38,6 +38,4 @@ document.addEventListener("DOMContentLoaded", function () {
         window.location.href = "index.html";
     });
 
-
 });
-

@@ -39,7 +39,7 @@ body {
 }
 
 .form-group input[type="text"],
-.form-group input[type="gmail"],
+.form-group input[type="email"],
 .form-group input[type="password"] {
     width: 95%;
     padding: 12px;
@@ -47,6 +47,26 @@ body {
     border-radius: 4px;
     font-size: 14px;
     transition: border-color 0.3s;
+}
+
+/* Error message */
+.error-text {
+    display: none;
+    color: #e53935;
+    font-size: 12px;
+    text-align: center;
+    /* margin-top: -1px; */
+    /* margin-bottom: 5px; */
+}
+
+/* Red input border */
+.input-error {
+    border: 1.5px solid #e53935 !important;
+    outline: none;
+}
+
+.input-error:focus {
+    box-shadow: 0 0 0 2px rgba(229, 57, 53, 0.25);
 }
 
 .form-group input:focus {
@@ -78,7 +98,7 @@ body {
     box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
 }
 
-#signinBtn a{
+#signinBtn a {
     text-decoration: none;
     color: white;
 }
@@ -107,7 +127,7 @@ body {
     }
 
     .form-group input[type="text"],
-    .form-group input[type="gmail"],
+    .form-group input[type="email"],
     .form-group input[type="password"] {
         width: 100%;
         padding: 10px;
@@ -142,7 +162,7 @@ body {
     }
 
     .form-group input[type="text"],
-    .form-group input[type="gmail"],
+    .form-group input[type="email"],
     .form-group input[type="password"] {
         width: 90%;
         padding: 10px;

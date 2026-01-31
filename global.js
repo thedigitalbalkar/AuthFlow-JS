@@ -1,4 +1,4 @@
-// ================= ADMIN INITIALIZER =================
+// ADMIN INITIALIZER 
 (function createDefaultAdmin() {
     const users = JSON.parse(localStorage.getItem("users")) || [];
 
@@ -8,7 +8,7 @@
     if (!adminExists) {
         users.push({
             fullName: "Admin",
-            gmail: "admin@gmail.com",
+            email: "admin@gmail.com",
             username: "admin",
             password: "Admin@123",
             role: "admin",
@@ -24,7 +24,7 @@
 // global.js
 document.addEventListener("DOMContentLoaded", function () {
 
-    // ===== COMMON ELEMENTS (SAFE QUERIES) =====
+    // COMMON ELEMENTS (SAFE QUERIES)
     const signupBtn = document.getElementById("signup");
     const loginBtn = document.getElementById("login");
     const accountBtn = document.getElementById("accountBtn");
@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
     const welcomeShown = sessionStorage.getItem("welcomeShown");
 
-    /* ================= AUTH UI ================= */
+    /* AUTH UI */
 
     if (loggedInUser) {
 
@@ -74,6 +74,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
         welcomeText && (welcomeText.textContent = "");
     }
+
+
 });
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -96,4 +98,3 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 });
-
