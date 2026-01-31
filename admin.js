@@ -150,6 +150,9 @@ document.addEventListener("DOMContentLoaded", function () {
         const user = users[index];
 
         editIndexInput.value = index;
+        editFullName.value = user.fullName;
+        editEmail.value = user.email;
+        editStatus.value = user.status;
 
         // toast msg
         editFullName.readOnly = true;
@@ -168,8 +171,6 @@ document.addEventListener("DOMContentLoaded", function () {
             };
             editEmail.dataset.toastBound = "true";
         }
-
-        editStatus.value = user.status;
         editModal.classList.remove("hidden");
     });
 
@@ -265,5 +266,6 @@ document.addEventListener("DOMContentLoaded", function () {
         newPassword.value = "";
         newStatus.value = "active";
     };
+
 
 });
